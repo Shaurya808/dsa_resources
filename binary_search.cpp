@@ -1,1 +1,59 @@
+https://www.topcoder.com/thrive/articles/Binary%20Search
 
+binary_search(A, target):
+  lo = 1, hi = size(A)
+while lo <= hi:
+  mid = lo + (hi - lo) / 2
+if A[mid] == target:
+  return mid
+else if A[mid] < target:
+  lo = mid + 1
+else:
+  hi = mid - 1 // target was not found
+
+// binary search 
+
+#include <iostream>
+using namespace std;
+
+int binarysearch(int arr[],int n,int target){
+    int li=0;
+    int hi=n-1;
+    
+    while(li<=hi){
+        int mid=li+(hi-li)/2;
+        if(arr[mid]==target){
+            return mid;
+        }
+        else if(arr[mid]<target){
+            li=mid+1;
+        }
+        else{
+            hi=mid-1;
+        }
+    }
+    return -1;
+}
+int main(){
+    int target;
+    int n;
+    cout<<"Enter the size of the array : "<<endl;
+    cin>>n;
+    int arr[n];
+    cout<<"Enter " << n <<" sorted elements in array : "<<endl;    
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }   
+    cout<<"Enter the target element : "<<endl;
+    cin>>target;
+    int ans=binarysearch(arr,n,target);    
+    
+    if(ans!=-1){
+        cout<<"Element found at index : "<<ans<<endl;
+    }
+    else{
+        cout<<"elemnt not found."<<endl;
+    }
+    return 0;
+}
+---------------------------------------------------------------------------
